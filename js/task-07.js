@@ -3,8 +3,14 @@ const refs = {
     textEl: document.querySelector('#text'),
 }
 
+function changeFontSize(fontSizePx) {
+    refs.textEl.style.fontSize = `${fontSizePx}px`;
+}
+
+changeFontSize(refs.fontSizeControlEl.value)
+
 refs.fontSizeControlEl.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-    refs.textEl.style.fontSize = `${event.currentTarget.value}px`;
+    changeFontSize(event.currentTarget.value)
 } 
