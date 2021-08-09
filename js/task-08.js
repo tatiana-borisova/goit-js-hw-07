@@ -35,6 +35,7 @@ function onRenderBtn() {
 function removeBoxes() {
     refs.boxesEl.textContent = '';
     refs.inputEl.value = '';
+    divSize = 20;
 }
 function ondestroyBtn() {
     removeBoxes()
