@@ -4,13 +4,14 @@ const refs = {
     destroyBtn: document.querySelector('[data-action="destroy"]'),
     boxesEl: document.querySelector('#boxes'),
 }
+let divSize = 20;
 
 refs.renderBtn.addEventListener('click', onRenderBtn);
 refs.destroyBtn.addEventListener('click', ondestroyBtn);
 
 function createBoxes(amount) {
     const arrayOfDivs = [];
-    let divSize = 20;
+
 
     for (let i = 1; i <= amount; i += 1) {
         const divEl = document.createElement('div');
@@ -23,17 +24,18 @@ function createBoxes(amount) {
         divEl.style.height = `${divSize}px`;
         arrayOfDivs.push(divEl);
     }
+
     refs.boxesEl.append(...arrayOfDivs);
 };
 
 function onRenderBtn() {
-    removeBoxes()
     createBoxes(refs.inputEl.value);
+    refs.inputEl.value = '';
 }
 function removeBoxes() {
     refs.boxesEl.textContent = '';
+    refs.inputEl.value = '';
 }
 function ondestroyBtn() {
     removeBoxes()
-    refs.inputEl.value = '';
 }
